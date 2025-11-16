@@ -74,8 +74,6 @@ const destinations: Destination[] = [
   },
 ];
 
-
-
   useEffect(() => {
     startAutoSlide();
     return () => {
