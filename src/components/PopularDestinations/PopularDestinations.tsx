@@ -15,78 +15,65 @@ const TravelCarousel: React.FC = () => {
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const [isPaused, setIsPaused] = useState(false);
 
- const destinations: Destination[] = [
-{
-  id: 1,
-  country: "Brazil",
-  description:
-    "Etiam porta sem malesuada magna mollis euismod. Maecenas sed diam eget risus varius blandit sit amet non magna.",
-  tours: 15,
-  flag: "https://flagcdn.com/br.svg",
-  image:
-    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=80",
-},
-{
-  id: 2,
-  country: "Cyprus",
-  description:
-    "Etiam porta sem malesuada magna mollis euismod. Maecenas sed diam eget risus varius blandit sit amet non magna.",
-  tours: 15,
-  flag: "https://flagcdn.com/cy.svg",
-  image:
-    "https://images.unsplash.com/photo-1526481280691-3e33d6f8c51b?auto=format&fit=crop&w=900&q=80",
-},
+const destinations: Destination[] = [
+  {
+    id: 1,
+    country: "Brazil",
+    description: "Etiam porta sem malesuada magna mollis euismod. Maecenas sed diam eget risus varius blandit sit amet non magna.",
+    tours: 15,
+    flag: "https://flagcdn.com/w320/br.png",
+    image: "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+  },
+  {
+    id: 2,
+    country: "Cyprus",
+    description: "Etiam porta sem malesuada magna mollis euismod. Maecenas sed diam eget risus varius blandit sit amet non magna.",
+    tours: 15,
+    flag: "https://flagcdn.com/w320/cy.png",
+    image: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2067&q=80",
+  },
   {
     id: 3,
     country: "America",
-    description:
-      "Etiam porta sem malesuada magna mollis euismod. Maecenas sed diam eget risus varius blandit sit amet non magna.",
+    description: "Etiam porta sem malesuada magna mollis euismod. Maecenas sed diam eget risus varius blandit sit amet non magna.",
     tours: 15,
-    flag: "https://flagcdn.com/us.svg",
-    image:
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80", // NYC skyline
+    flag: "https://flagcdn.com/w320/us.png",
+    image: "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2099&q=80",
   },
   {
     id: 4,
     country: "Russia",
-    description:
-      "Etiam porta sem malesuada magna mollis euismod. Maecenas sed diam eget risus varius blandit sit amet non magna.",
+    description: "Etiam porta sem malesuada magna mollis euismod. Maecenas sed diam eget risus varius blandit sit amet non magna.",
     tours: 15,
-    flag: "https://flagcdn.com/ru.svg",
-    image:
-      "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=900&q=80", // Moscow Red Square
+    flag: "https://flagcdn.com/w320/ru.png",
+    image: "https://images.unsplash.com/photo-1513326738677-b964603b136d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2095&q=80",
   },
   {
     id: 5,
     country: "England",
-    description:
-      "Etiam porta sem malesuada magna mollis euismod. Maecenas sed diam eget risus varius blandit sit amet non magna.",
+    description: "Etiam porta sem malesuada magna mollis euismod. Maecenas sed diam eget risus varius blandit sit amet non magna.",
     tours: 15,
-    flag: "https://flagcdn.com/gb.svg",
-    image:
-      "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=900&q=80", // London Tower Bridge
+    flag: "https://flagcdn.com/w320/gb.png",
+    image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
   },
   {
     id: 6,
     country: "Turkey",
-    description:
-      "Etiam porta sem malesuada magna mollis euismod. Maecenas sed diam eget risus varius blandit sit amet non magna.",
+    description: "Etiam porta sem malesuada magna mollis euismod. Maecenas sed diam eget risus varius blandit sit amet non magna.",
     tours: 15,
-    flag: "https://flagcdn.com/tr.svg",
-    image:
-      "https://images.unsplash.com/photo-1501612780327-45045538702b?auto=format&fit=crop&w=900&q=80", // Istanbul
+    flag: "https://flagcdn.com/w320/tr.png",
+    image: "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80",
   },
-{
-  id: 7,
-  country: "Egypt",
-  description:
-    "Etiam porta sem malesuada magna mollis euismod. Maecenas sed diam eget risus varius blandit sit amet non magna.",
-  tours: 15,
-  flag: "https://flagcdn.com/eg.svg",
-  image:
-    "https://images.unsplash.com/photo-1587740896339-338a4303d94d?auto=format&fit=crop&w=900&q=80",
-},
+  {
+    id: 7,
+    country: "Egypt",
+    description: "Etiam porta sem malesuada magna mollis euismod. Maecenas sed diam eget risus varius blandit sit amet non magna.",
+    tours: 15,
+    flag: "https://flagcdn.com/w320/eg.png",
+    image: "https://images.unsplash.com/photo-1542382257-80dedb725088?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2128&q=80",
+  },
 ];
+
 
 
   useEffect(() => {
