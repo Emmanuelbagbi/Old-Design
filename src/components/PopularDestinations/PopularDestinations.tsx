@@ -163,7 +163,7 @@ const destinations: Destination[] = [
               <img src={dest.image} alt={dest.country} />
             </div>
              <div className="flag-circle44">
-                <img src={dest.flag} alt={`${dest.country} Flag`} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                <img src={dest.flag} alt={`${dest.country} Flag`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
             <div className="card-content4">
               <h2 className="country-name4">{dest.country}</h2>
